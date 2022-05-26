@@ -40,8 +40,8 @@ public class AnimalPictionaryController {
 
     @FXML
     protected void onAnimalPictionaryClick(ActionEvent event) throws IOException {
-        Parent animalpictionary = FXMLLoader.load(getClass().getResource("animalpictionary-view.fxml"));
-        Scene scene = new Scene(animalpictionary);
+        Parent animalPictionary = FXMLLoader.load(getClass().getResource("animalpictionary-view.fxml"));
+        Scene scene = new Scene(animalPictionary);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Animal Pictionary");
@@ -51,8 +51,8 @@ public class AnimalPictionaryController {
 
     @FXML
     protected void onScoreBoardClick(ActionEvent event) throws IOException {
-        Parent scorescreen = FXMLLoader.load(getClass().getResource("scorescreen-view.fxml"));
-        Scene scene = new Scene(scorescreen);
+        Parent scoreScreen = FXMLLoader.load(getClass().getResource("scorescreen-view.fxml"));
+        Scene scene = new Scene(scoreScreen);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Score Board");
@@ -88,14 +88,13 @@ public class AnimalPictionaryController {
     }
 
     public void btnSubmitGuess(){
-        if(numberOfTries>0){
             if(ap.CorrectGuess(txtAnimalName.getText(), txtAnimalName1.getText())){
-                txtScore.setText(Integer.toString(score+2));
-                txtNumberTries.setText((Integer.toString(numberOfTries-1)));
+                txtScore.setText(Integer.toString(score));
+                txtNumberTries.setText((Integer.toString(numberOfTries)));
             }else{
                 txtNumberTries.setText((Integer.toString(numberOfTries-1)));
             }
-        }
         imageView.setImage(ap.nextPicture());
+        }
+
     }
-}

@@ -11,6 +11,7 @@ public class AnimalPictionary {
     public File[] files;
     public Image[] images;
     private int index;
+    private boolean play;
 
 
     public AnimalPictionary() {
@@ -19,6 +20,7 @@ public class AnimalPictionary {
         index = 0;
         files = new File[3];
         images = new Image[3];
+        play = true;
         setFilesAndImages();
     }
 
@@ -34,7 +36,8 @@ public class AnimalPictionary {
     }
 
     public boolean CorrectGuess(String inputName1, String inputName2) {
-        while (numberOfTries <= 3) {
+        play = true;
+        while (numberOfTries > 0) {
             if (images[index] == images[0]) {
                 if (inputName1.equals("Dog") && inputName2.equals("Horse") || inputName1.equals("Horse") && inputName2.equals("Dog")) {
                     score += 2;
@@ -97,7 +100,7 @@ public class AnimalPictionary {
             if (images[index] == images[0]) {
                 display = "The first animal lives in the ocean, the second one eats grass.";
             } else if (images[index] == images[1]) {
-                display = "The first animal likes mud, the second one is awesome.";
+                display = "The first animal likes mud, the second one is yellow.";
             } else if (images[index] == images[2]) {
                 display = "The first animal flies, the second one is arguable the most popular pet.";
             } else if (images[index] == images[3]) {
